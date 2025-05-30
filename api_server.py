@@ -26,6 +26,7 @@ import tempfile
 import threading
 import traceback
 import uuid
+import random
 from io import BytesIO
 
 import torch
@@ -201,10 +202,10 @@ class ModelWorker:
         if 'mesh' in params:
             mesh = trimesh.load(BytesIO(base64.b64decode(params["mesh"])), file_type='glb')
         else:
-            seed = params.get("seed", 1234)
+            seed = params.get("seed", random.random())
             params['generator'] = torch.Generator(self.device).manual_seed(seed)
-            params['octree_resolution'] = params.get("octree_resolution", 128)
-            params['num_inference_steps'] = params.get("num_inference_steps", 5)
+            params['octree_resolution'] = params.get("octree_resolution", 320)
+            params['num_inference_steps'] = params.get("num_inference_steps", 50)
             params['guidance_scale'] = params.get('guidance_scale', 5.0)
             params['mc_algo'] = 'mc'
             import time
