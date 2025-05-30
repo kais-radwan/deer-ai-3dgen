@@ -202,7 +202,7 @@ class ModelWorker:
         if 'mesh' in params:
             mesh = trimesh.load(BytesIO(base64.b64decode(params["mesh"])), file_type='glb')
         else:
-            seed = params.get("seed", random.random())
+            seed = params.get("seed", 1234)
             params['generator'] = torch.Generator(self.device).manual_seed(seed)
             params['octree_resolution'] = params.get("octree_resolution", 320)
             params['num_inference_steps'] = params.get("num_inference_steps", 50)
