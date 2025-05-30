@@ -211,6 +211,7 @@ class ModelWorker:
             import time
             start_time = time.time()
             mesh = self.pipeline(
+                image=image,
                 num_inference_steps=50,
                 octree_resolution=380,
                 num_chunks=20000,
