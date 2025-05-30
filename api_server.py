@@ -210,7 +210,13 @@ class ModelWorker:
             params['mc_algo'] = 'mc'
             import time
             start_time = time.time()
-            mesh = self.pipeline(**params)[0]
+            mesh = self.pipeline(
+                num_inference_steps=50,
+                octree_resolution=380,
+                num_chunks=20000,
+                generator=torch.manual_seed(12345),
+                output_type='trimesh'
+            )[0]
             logger.info("--- %s seconds ---" % (time.time() - start_time))
 
         if params.get('texture', False):
