@@ -213,8 +213,8 @@ class ModelWorker:
             start_time = time.time()
             mesh = self.pipeline(
                 image=image,
-                num_inference_steps=50,
-                octree_resolution=380,
+                num_inference_steps=60,
+                octree_resolution=560,
                 num_chunks=20000,
                 generator=torch.manual_seed(12345),
                 output_type='trimesh'
