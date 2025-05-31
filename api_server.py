@@ -162,6 +162,7 @@ class ModelWorker:
             subfolder=subfolder,
             use_safetensors=True,
             device=device,
+            variant='fp16'
         )
         self.pipeline.enable_flashvdm(mc_algo='mc')
         # self.pipeline_t2i = HunyuanDiTPipeline(
