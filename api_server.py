@@ -146,7 +146,7 @@ def load_image_from_base64(image):
 
 class ModelWorker:
     def __init__(self,
-                 model_path='tencent/Hunyuan3D-2mini',
+                 model_path='tencent/Hunyuan3D-2',
                  tex_model_path='tencent/Hunyuan3D-2',
                  subfolder='hunyuan3d-dit-v2-mini-turbo',
                  device='cuda',
@@ -212,7 +212,7 @@ class ModelWorker:
             start_time = time.time()
             mesh = self.pipeline(
                 image=image,
-                num_inference_steps=10,
+                num_inference_steps=50,
                 octree_resolution=380,
                 num_chunks=20000,
                 generator=torch.manual_seed(12345),
