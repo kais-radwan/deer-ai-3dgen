@@ -214,7 +214,7 @@ class ModelWorker:
             mesh = self.pipeline(
                 image=image,
                 num_inference_steps=60,
-                octree_resolution=860,
+                octree_resolution=640,
                 num_chunks=20000,
                 generator=torch.manual_seed(12345),
                 output_type='trimesh'
