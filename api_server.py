@@ -148,7 +148,7 @@ class ModelWorker:
     def __init__(self,
                  model_path='tencent/Hunyuan3D-2',
                  tex_model_path='tencent/Hunyuan3D-2',
-                 subfolder='hunyuan3d-dit-v2-mini-turbo',
+                 subfolder='hunyuan3d-dit-v2-0',
                  device='cuda',
                  enable_tex=False):
         self.model_path = model_path
